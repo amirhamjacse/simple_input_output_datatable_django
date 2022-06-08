@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a django page make with python and html</title>
+    <style>
+        table, th, td {
+            border-collapse: collapse; 
+            border: 1px solid black;
+            padding: 15px;
+        }
+        h1{
+            background-color: teal;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>This is working with django</h1>
+    <h2>Today Date and Time: {{dt}}</h2>
+    <h2>Today Date: {{dt|date:"D d M Y"}}</h2>
+    <h2>Time: {{dt|time:'TIME_FORMAT'}}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Enter all Your Info Here </h1>
+          Name:<input type="text" name="name">
+           Roll: <input type="text" name="roll">
+          Department: <input type="text" name="dept">
+          Semester: <input type="text" name="sem">
+        <button type="submit">Submit</button>
+
+    </form>
+    <br>
+    {% if nm or roll or dept or sem %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Department</th>
+            <th>Semester</th>
+        </tr>
+        <tr>
+            <td>{{nm|capfirst}}</td>
+            <td>{{roll|capfirst}}</td>
+            <td>{{dept|capfirst}}</td>
+            <td>{{sem|capfirst}}</td>
+
+        </tr>
+    </table>
+    {% endif %}
+
+    
+   
+</center>
+</body>
+</html>
